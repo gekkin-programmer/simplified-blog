@@ -19,12 +19,12 @@ public class CommentController {
     }
 
     @PostMapping("/create-comment")
-    public CommentResDto create ( CommentReqDto comment){
+    public CommentResDto create ( @RequestBody  CommentReqDto comment){
         return commentServiceInterf.createComment(comment);
     }
 
     @GetMapping("/get-all-comments")
-    public List<CommentResDto> getAllComments() {
+    public List<CommentResDto> getAllComments(@RequestBody CommentReqDto commentReqDto) {
 
         return commentServiceInterf.getAllComments();
     }
@@ -35,7 +35,7 @@ public class CommentController {
     }
 
     @PutMapping("/update-user")
-    public CommentResDto updateUser(CommentReqDto comment) {
+    public CommentResDto updateUser(@RequestBody CommentReqDto comment) {
         return commentServiceInterf.updateComment(comment);
     }
 
